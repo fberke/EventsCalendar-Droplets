@@ -26,7 +26,8 @@ if (!isset ($day)) { $day = date('j'); }
 if (!isset($page_id)) { $page_id = 0 ; }
 if (!isset($section_id)) { $section_id = 0 ; }
 if (!isset($category)) { $category = false; }
-	
+
+define ("EVENTSCAL_FQDN", returnCalPageURL ($page_id));
 
 // Set start and end date for query
 $date_start = mktime (0,0,0, $month, $day, $year);
@@ -52,7 +53,7 @@ if ($sizeofEvents > 0) {
 		}
 		$output .= '<li><a href="'.$entry ['event_link'].'"><div>'."\n";
 		$output .= '<span class="date_time">'.$dateEntry.'</span>'."\n";
-		$output .= '<h4>'.$entry ['event_title'].'</h4>'."\n";
+		$output .= '<h3>'.$entry ['event_title'].'</h3>'."\n";
 		$output .= '<p>'.$entry ['oneliner'].'</p>'."\n";
 		$output .= '</div></a></li>'."\n";
 	}
@@ -62,5 +63,4 @@ if ($sizeofEvents > 0) {
 } else $output = $CALTEXT['NODATES'];
 
 return $output;
-
 ?>

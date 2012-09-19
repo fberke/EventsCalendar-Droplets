@@ -30,8 +30,10 @@ if (isset($_GET['year'])) {
 	$year = date('Y');
 }
 
-if (!isset($section_id)) { $section_id = 0 ; }
-if (!isset($page_id)) { $page_id = 0 ; }
+if (!isset($section_id)) { $section_id = 0; }
+if (!isset($page_id)) { $page_id = 0; }
+
+define ("EVENTSCAL_FQDN", returnCalPageURL ($page_id));
 
 $date_start = mktime (0, 0, 0, $month, 1, $year);
 $date_end = mktime (23, 59, 59, $month, DaysCount($month, $year), $year);
